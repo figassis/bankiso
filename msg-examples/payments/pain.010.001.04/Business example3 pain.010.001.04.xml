@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.010.001.04">
+	<MndtAmdmntReq>
+		<GrpHdr>
+			<MsgId>FGH7945</MsgId>
+			<CreDtTm>2011-12-16T11:25:00</CreDtTm>
+			<InitgPty>
+				<Nm>Best Bank</Nm>
+			</InitgPty>
+			<InstgAgt>
+				<FinInstnId>
+					<BICFI>AAAAUS22</BICFI>
+				</FinInstnId>
+			</InstgAgt>
+			<InstdAgt>
+				<FinInstnId>
+					<BICFI>BBBBUS56</BICFI>
+				</FinInstnId>
+			</InstdAgt>
+		</GrpHdr>
+		<UndrlygAmdmntDtls>
+			<OrgnlMsgInf>
+				<MsgId>FGH7930</MsgId>
+				<MsgNmId>pain.009.001.03</MsgNmId>
+				<CreDtTm>2011-06-28T10:00:00</CreDtTm>
+			</OrgnlMsgInf>
+			<AmdmntRsn>
+				<Orgtr>
+					<Nm>Best Bank</Nm>
+				</Orgtr>
+				<Rsn>
+					<Prtry>Account structure change</Prtry>
+				</Rsn>
+			</AmdmntRsn>
+			<Mndt>
+				<MndtId>55512/04</MndtId>
+				<Cdtr>
+					<Nm>Stevens and Son</Nm>
+				</Cdtr>
+				<CdtrAcct>
+					<Id>
+						<Othr>
+							<Id>558823</Id>
+						</Othr>
+					</Id>
+				</CdtrAcct>
+				<Dbtr>
+					<Nm>Williams</Nm>
+				</Dbtr>
+				<DbtrAcct>
+					<Id>
+						<Othr>
+							<Id>33144568</Id>
+						</Othr>
+					</Id>
+				</DbtrAcct>
+			</Mndt>
+			<OrgnlMndt>
+				<OrgnlMndt>
+					<MndtId>55512/04</MndtId>
+					<Cdtr>
+						<Nm>Stevens and Son</Nm>
+					</Cdtr>
+					<Dbtr>
+						<Nm>Williams</Nm>
+					</Dbtr>
+					<DbtrAcct>
+						<Id>
+							<Othr>
+								<Id>445568</Id>
+							</Othr>
+						</Id>
+					</DbtrAcct>
+					<DbtrAgt>
+						<FinInstnId>
+							<BICFI>AAAAUS22</BICFI>
+						</FinInstnId>
+					</DbtrAgt>
+				</OrgnlMndt>
+			</OrgnlMndt>
+		</UndrlygAmdmntDtls>
+	</MndtAmdmntReq>
+</Document>

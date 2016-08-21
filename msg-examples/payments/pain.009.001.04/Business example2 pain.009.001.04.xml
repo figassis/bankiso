@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.009.001.04">
+	<MndtInitnReq>
+		<GrpHdr>
+			<MsgId>AAAA123456</MsgId>
+			<CreDtTm>2012-12-16T14:25:00</CreDtTm>
+			<InitgPty>
+				<Nm>Paris Solutions</Nm>
+				<PstlAdr>
+					<StrtNm>Rue Dante</StrtNm>
+					<BldgNb>16</BldgNb>
+					<PstCd>75004</PstCd>
+					<TwnNm>Paris</TwnNm>
+					<Ctry>FR</Ctry>
+				</PstlAdr>
+			</InitgPty>
+		</GrpHdr>
+		<Mndt>
+			<MndtId>09/345</MndtId>
+			<MndtReqId>09/345</MndtReqId>
+			<Tp>
+				<SvcLvl>
+					<Cd>SEPA</Cd>
+				</SvcLvl>
+				<LclInstrm>
+					<Cd>CORE</Cd>
+				</LclInstrm>
+			</Tp>
+			<Ocrncs>
+				<SeqTp>RCUR</SeqTp>
+				<Frqcy>
+					<Tp>MNTH</Tp>
+				</Frqcy>
+				<FrstColltnDt>2013-02-04</FrstColltnDt>
+				<FnlColltnDt>2013-11-04</FnlColltnDt>
+			</Ocrncs>
+			<ColltnAmt Ccy="EUR">50</ColltnAmt>
+			<Cdtr>
+				<Nm>Paris Solutions</Nm>
+			</Cdtr>
+			<CdtrAcct>
+				<Id>
+					<IBAN>FR1430041020030300015M02606</IBAN>
+				</Id>
+			</CdtrAcct>
+			<CdtrAgt>
+				<FinInstnId>
+					<BICFI>BBBBFR39</BICFI>
+				</FinInstnId>
+			</CdtrAgt>
+			<Dbtr>
+				<Nm>Schneider</Nm>
+			</Dbtr>
+			<DbtrAgt>
+				<FinInstnId>
+					<BICFI>AAAADE29</BICFI>
+				</FinInstnId>
+			</DbtrAgt>
+			<UltmtDbtr>
+				<Nm>Fischer</Nm>
+			</UltmtDbtr>
+			<RfrdDoc>
+				<Nb>DE-09/345/79801</Nb>
+				<RltdDt>2012-12-16</RltdDt>
+			</RfrdDoc>
+		</Mndt>
+	</MndtInitnReq>
+</Document>
