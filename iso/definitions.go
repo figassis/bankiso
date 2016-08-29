@@ -10,5 +10,5 @@ type Document struct {
 //Defines an ISO Message
 //Can either be ISO 8583 or 20022
 type ISOMessage interface {
-	String() (result string, err error)
+	String() (result string, ok bool)
 }
