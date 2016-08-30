@@ -6,11 +6,11 @@ This package consumes valid iso20022 XML strings and returns Go structs to be pr
 
 
 # Setup
-go get github.com/figassis/bankiso
-go get github.com/davecgh/go-spew/spew
+go get github.com/figassis/bankiso  
+go get github.com/davecgh/go-spew/spew  
 
-cd $GOPATH/src/github.com/figassis/isogen
-go build
+cd $GOPATH/src/github.com/figassis/isogen  
+go build  
 
 
 # Testing
