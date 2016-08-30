@@ -185,6 +185,12 @@ func makeISO20022(code, message string) (valid bool, result ISOMessage) {
 		return
 	}
 
+	err := xml.Unmarshal([]byte(message), &val)
+	if err != nil {
+		fmt.Printf("error: %v", err)
+		return
+	}
+
 	valid = true
 	result = val.(ISOMessage)
 	return
