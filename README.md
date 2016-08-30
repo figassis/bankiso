@@ -18,7 +18,7 @@ go build
 ./bankiso -f bankiso -f msg-examples/payments/pain.009.001.04/Business\ example3\ pain.009.001.04.xml
 
 # Usage in a project
-Take a look at https://github.com/figassis/bankiso/main.go
+Take a look at https://github.com/figassis/bankiso/blob/master/main.go
 
 Each iso20022 schema results in a different struct, and therefore a different go type.
 If decided to use interfaces, type assertions and type switches to provide a sane way to handle all messages.
