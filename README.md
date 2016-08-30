@@ -7,9 +7,9 @@ This package consumes valid iso20022 XML strings and returns Go structs to be pr
 
 # Setup
 go get github.com/figassis/bankiso  
-go get github.com/davecgh/go-spew/spew  
+go get github.com/davecgh/go-spew/spew  --for debugging purposes only. Not required if not building
 
-cd $GOPATH/src/github.com/figassis/isogen  
+cd $GOPATH/src/github.com/figassis/bankiso
 go build  
 
 
