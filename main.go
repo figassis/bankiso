@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"os"
 	"reflect"
 
@@ -35,14 +36,17 @@ func main() {
 
 	data, err := ioutil.ReadFile(file)
 	if err != nil {
-		return
+		log.Fatal(err)
 	}
 
 	example := string(data)
 
-	valid, message, standard, domain, code := iso.Decode(example)
+	message, domain, code, err := iso.Decode(example)
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	fmt.Printf("Valid: %v, Data Type: %v, Standard: %v, Business Domain: %v, Message Code: %v\n", valid, reflect.TypeOf(message), standard, domain, code)
+	fmt.Printf("Data Type: %v, Business Domain: %v, Message Code: %v\n", reflect.TypeOf(message), domain, code)
 
 	switch message.(type) {
 	case *acmt.Document00700102:

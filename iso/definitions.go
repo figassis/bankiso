@@ -7,8 +7,7 @@ type Document struct {
 	Format string `xml:"xmlns,attr"`
 }
 
-//Defines an ISO Message
-//Can either be ISO 8583 or 20022
-type ISOMessage interface {
+//Defines an ISO20022 Message
+type Message interface {
 	String() (result string, ok bool)
 }

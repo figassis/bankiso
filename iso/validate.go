@@ -2,6 +2,7 @@ package iso
 
 import (
 	"encoding/xml"
+	"errors"
 	"fmt"
 	"regexp"
 	"strings"
@@ -178,25 +179,21 @@ var ISO20022Registry map[string]interface{} = map[string]interface{}{
 	"remt.002.001.01": &remt.Document00200101{},
 }
 
-func makeISO20022(code, message string) (valid bool, result ISOMessage) {
+func makeISO20022(code, message string) (result Message, err error) {
 
 	val, ok := ISO20022Registry[code]
 	if !ok {
+		err = fmt.Errorf("Invalid ISO20022 code %s", code)
 		return
 	}
 
-	err := xml.Unmarshal([]byte(message), &val)
-	if err != nil {
-		fmt.Printf("error: %v", err)
+	if err = xml.Unmarshal([]byte(message), &val); err != nil {
 		return
 	}
 
-	valid = true
-	result = val.(ISOMessage)
-	return
-}
-
-func makeISO8583(code, message string) (valid bool, result ISOMessage) {
+	if result, ok = val.(Message); !ok {
+		err = errors.New("Invalid ISO20022 message")
+	}
 	return
 }
 
@@ -223,19 +220,17 @@ func isXML(message string) bool {
 
 //Returns a boolean and the message type, eg. true, "acmt"
 //@TODO: implement full xsd schema validation
-func ValidateISO20022(message string) (valid bool, domain, code string) {
+func ValidateISO20022(message string) (domain, code string, err error) {
 
 	isXml := isXML(message)
 	if !isXml {
-		return
+		return "", "", errors.New("message is not valid XML")
 	}
 
 	v := Document{Format: ""}
 
 	//@TODO To improve performance, consider using a string split or regex match instead
-	err := xml.Unmarshal([]byte(message), &v)
-	if err != nil {
-		fmt.Printf("error: %v", err)
+	if err = xml.Unmarshal([]byte(message), &v); err != nil {
 		return
 	}
 
@@ -243,72 +238,42 @@ func ValidateISO20022(message string) (valid bool, domain, code string) {
 	search := `^urn:iso:std:iso:20022:tech:xsd:(acmt|admi|auth|caaa|caam|camt|catm|catp|colr|fxtr|pacs|pain|reda|remt|secl|seev|semt|sese|setr|tsin|tsmt|tsrv|head)\.[0-9]{3}\.[0-9]{3}\.[0-9]{2}$`
 	match, err := regexp.MatchString(search, v.Format)
 	if err != nil {
-		fmt.Printf("error: %v", err)
 		return
 	}
 
 	if !match {
-		return
+		return "", "", errors.New("Input is not a valid iso20022 message")
 	}
 
 	//Eg. pain.009.001.04
-	code = strings.Split(v.Format, "xsd:")[1]
+	splitCode := strings.Split(v.Format, "xsd:")
+	if len(splitCode) < 2 {
+		return "", "", fmt.Errorf("%s is not a valid iso20022 message format", v.Format)
+	}
+	code = splitCode[1]
+
+	splitCode = strings.Split(code, ".")
+	if len(splitCode) != 4 {
+		return "", "", fmt.Errorf("%s is not a valid iso20022 message code", code)
+	}
 
 	//Eg. pain
-	domain = strings.Split(code, ".")[0]
-
-	valid = true
-
-	return
-}
-
-//Not yet implemented
-func ValidateISO8583(message string) (valid bool, domain, code string) {
-	return
-}
-
-//Determines if string is valid ISO 20022 or 8583
-func ValidateISO(message string) (valid bool, standard, domain, code string) {
-
-	iso20022, iso20022Domain, iso20022Code := ValidateISO20022(message)
-	iso8583, iso8583Domain, iso8583Code := ValidateISO8583(message)
-
-	if iso20022 && iso8583 {
-		return
-	}
-
-	if iso20022 {
-		standard = "iso20022"
-		domain = iso20022Domain
-		code = iso20022Code
-		valid = true
-	}
-
-	if iso8583 {
-		standard = "iso8583"
-		domain = iso8583Domain
-		code = iso8583Code
-		valid = true
-	}
+	domain = splitCode[0]
 
 	return
 }
 
 //Return ISO Message struct containing message content as well as
 //identifiers to facilitate type casting/assertion and message handling
-func Decode(message string) (valid bool, result ISOMessage, standard string, domain string, code string) {
+func Decode(message string) (result Message, domain, code string, err error) {
 
-	ok, standard, domain, code := ValidateISO(message)
-
-	if !ok {
+	if domain, code, err = ValidateISO20022(message); err != nil {
 		return
 	}
 
-	switch standard {
-	case "iso20022":
-		valid, result = makeISO20022(code, message)
-	case "iso8583":
-		valid, result = makeISO8583(code, message)
+	if result, err = makeISO20022(code, message); err != nil {
+		return
 	}
+
 	return
 }
