@@ -15,7 +15,7 @@ go build
 
 # Testing
 
-./bankiso -f bankiso -f msg-examples/payments/pain.009.001.04/Business\ example3\ pain.009.001.04.xml
+./bankiso -f bankiso -f msg-examples/payments/pain.009.001.04/business3-pain.009.001.04.xml
 
 # Usage in a project
 Take a look at https://github.com/figassis/bankiso/blob/master/main.go

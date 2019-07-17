@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.010.001.04">
+	<MndtAmdmntReq>
+		<GrpHdr>
+			<MsgId>DDFF12345</MsgId>
+			<CreDtTm>2011-12-16T11:25:00</CreDtTm>
+			<InitgPty>
+				<Nm>Virgay Insurance Company</Nm>
+				<PstlAdr>
+					<StrtNm>High Street</StrtNm>
+					<BldgNb>12</BldgNb>
+					<PstCd>NJ 65005</PstCd>
+					<TwnNm>Jersey City</TwnNm>
+					<Ctry>US</Ctry>
+				</PstlAdr>
+			</InitgPty>
+			<InstgAgt>
+				<FinInstnId>
+					<BICFI>BBBBUS21</BICFI>
+				</FinInstnId>
+			</InstgAgt>
+			<InstdAgt>
+				<FinInstnId>
+					<BICFI>MMMMUS31</BICFI>
+				</FinInstnId>
+			</InstdAgt>
+		</GrpHdr>
+		<UndrlygAmdmntDtls>
+			<AmdmntRsn>
+				<Rsn>
+					<Prtry>Change on the contract</Prtry>
+				</Rsn>
+			</AmdmntRsn>
+			<Mndt>
+				<MndtId>3344/54</MndtId>
+				<Ocrncs>
+					<SeqTp>RCUR</SeqTp>
+					<Frqcy>
+						<Tp>MNTH</Tp>
+					</Frqcy>
+				</Ocrncs>
+				<ColltnAmt Ccy="USD">100</ColltnAmt>
+				<Cdtr>
+					<Nm>Virgay Insurance Company</Nm>
+				</Cdtr>
+				<Dbtr>
+					<Nm>Carter</Nm>
+				</Dbtr>
+				<DbtrAcct>
+					<Id>
+						<Othr>
+							<Id>33445</Id>
+						</Othr>
+					</Id>
+				</DbtrAcct>
+				<DbtrAgt>
+					<FinInstnId>
+						<BICFI>MMMMUS31</BICFI>
+					</FinInstnId>
+				</DbtrAgt>
+			</Mndt>
+			<OrgnlMndt>
+				<OrgnlMndt>
+					<MndtId>3344/54</MndtId>
+					<Ocrncs>
+						<SeqTp>RCUR</SeqTp>
+						<Frqcy></Frqcy>
+					</Ocrncs>
+					<ColltnAmt Ccy="USD">1200</ColltnAmt>
+					<Cdtr>
+						<Nm>Virgay Insurance Company</Nm>
+					</Cdtr>
+					<Dbtr>
+						<Nm>Carter</Nm>
+					</Dbtr>
+					<DbtrAgt>
+						<FinInstnId>
+							<BICFI>MMMMUS31</BICFI>
+						</FinInstnId>
+					</DbtrAgt>
+				</OrgnlMndt>
+			</OrgnlMndt>
+		</UndrlygAmdmntDtls>
+	</MndtAmdmntReq>
+</Document>

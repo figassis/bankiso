@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.009.001.04">
+	<MndtInitnReq>
+		<GrpHdr>
+			<MsgId>BBA969789</MsgId>
+			<CreDtTm>2013-01-06T16:25:00</CreDtTm>
+			<InitgPty>
+				<Nm>Gilles</Nm>
+				<PstlAdr>
+					<StrtNm>Rue Cler</StrtNm>
+					<BldgNb>11</BldgNb>
+					<PstCd>75005</PstCd>
+					<TwnNm>Paris</TwnNm>
+					<Ctry>FR</Ctry>
+				</PstlAdr>
+			</InitgPty>
+		</GrpHdr>
+		<Mndt>
+			<MndtId>55513</MndtId>
+			<MndtReqId>55513</MndtReqId>
+			<Ocrncs>
+				<SeqTp>OOFF</SeqTp>
+			</Ocrncs>
+			<ColltnAmt Ccy="EUR">1200</ColltnAmt>
+			<Cdtr>
+				<Nm>Jones Inc.</Nm>
+			</Cdtr>
+			<CdtrAcct>
+				<Id>
+					<Othr>
+						<Id>5566771</Id>
+					</Othr>
+				</Id>
+			</CdtrAcct>
+			<CdtrAgt>
+				<FinInstnId>
+					<BICFI>GGGGUS32</BICFI>
+				</FinInstnId>
+			</CdtrAgt>
+			<Dbtr>
+				<Nm>Gilles</Nm>
+			</Dbtr>
+			<DbtrAcct>
+				<Id>
+					<IBAN>FR142006303007050021M05405</IBAN>
+				</Id>
+			</DbtrAcct>
+			<DbtrAgt>
+				<FinInstnId>
+					<BICFI>JJJJFR35</BICFI>
+				</FinInstnId>
+			</DbtrAgt>
+		</Mndt>
+	</MndtInitnReq>
+</Document>
