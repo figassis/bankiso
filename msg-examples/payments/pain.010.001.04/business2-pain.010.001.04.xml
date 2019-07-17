@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.010.001.04">
+	<MndtAmdmntReq>
+		<GrpHdr>
+			<MsgId>CFFC33445</MsgId>
+			<CreDtTm>2011-12-15T16:25:00</CreDtTm>
+			<InitgPty>
+				<Nm>Moulin et Cie</Nm>
+				<PstlAdr>
+					<StrtNm>Rue de Bretagne</StrtNm>
+					<BldgNb>10</BldgNb>
+					<PstCd>75005</PstCd>
+					<TwnNm>Paris</TwnNm>
+					<Ctry>FR</Ctry>
+				</PstlAdr>
+			</InitgPty>
+		</GrpHdr>
+		<UndrlygAmdmntDtls>
+			<AmdmntRsn>
+				<Orgtr>
+					<Nm>Moulin et Cie</Nm>
+				</Orgtr>
+				<Rsn>
+					<Prtry>Change account for optimization</Prtry>
+				</Rsn>
+			</AmdmntRsn>
+			<Mndt>
+				<MndtId>66613/06</MndtId>
+				<DbtrAcct>
+					<Id>
+						<IBAN>FR131005203006040010M04304</IBAN>
+					</Id>
+				</DbtrAcct>
+			</Mndt>
+			<OrgnlMndt>
+				<OrgnlMndt>
+					<MndtId>66613/06</MndtId>
+					<Cdtr>
+						<Nm>Jacquelin Freres</Nm>
+					</Cdtr>
+					<Dbtr>
+						<Nm>Moulin et Cie</Nm>
+					</Dbtr>
+					<DbtrAcct>
+						<Id>
+							<IBAN>FR142066333888050021M05505</IBAN>
+						</Id>
+					</DbtrAcct>
+					<DbtrAgt>
+						<FinInstnId>
+							<BICFI>MMMMFR23</BICFI>
+						</FinInstnId>
+					</DbtrAgt>
+				</OrgnlMndt>
+			</OrgnlMndt>
+		</UndrlygAmdmntDtls>
+	</MndtAmdmntReq>
+</Document>

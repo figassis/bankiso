@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.011.001.04">
+	<MndtCxlReq>
+		<GrpHdr>
+			<MsgId>ML12345</MsgId>
+			<CreDtTm>2011-12-19T15:25:00</CreDtTm>
+			<InitgPty>
+				<Nm>Jones</Nm>
+			</InitgPty>
+			<InstgAgt>
+				<FinInstnId>
+					<BICFI>DDDDUS31</BICFI>
+				</FinInstnId>
+			</InstgAgt>
+			<InstdAgt>
+				<FinInstnId>
+					<BICFI>MMMMUS29</BICFI>
+				</FinInstnId>
+			</InstdAgt>
+		</GrpHdr>
+		<UndrlygCxlDtls>
+			<CxlRsn>
+				<Rsn>
+					<Cd>MD16</Cd>
+				</Rsn>
+			</CxlRsn>
+			<OrgnlMndt>
+				<OrgnlMndtId>1633/05</OrgnlMndtId>
+			</OrgnlMndt>
+		</UndrlygCxlDtls>
+	</MndtCxlReq>
+</Document>
